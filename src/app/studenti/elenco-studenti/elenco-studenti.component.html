@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col"><button class="btn btn-success" style="max-width: 150px; margin: 10px 25px;" routerLink='/aggiungi-studente'>Aggiungi</button></div>
+    <br>
+    <div class="col-2"></div>
+  </div>
+  <div class="row" style="margin: 30px 50px;">
+    <div class="col-2"></div>
+    <div class="col"><h4>Nome</h4></div>
+    <div class="col"><h4>Cognome</h4></div>
+    <div class="col"><h4>Matricola</h4></div>
+    <div class="col-3"></div>
+  </div>
+  <div class="row" *ngFor="let studente of elencoStudenti">
+
+      <div class="col-2"></div>
+      <div class="col">{{studente.nome}}</div>
+      <div class="col">{{studente.cognome}}</div>
+      <div class="col">{{studente.matricola}}</div>
+      <div class="col-3" ><button class="btn btn-warning" style="max-width: 100px; margin: 5px;" [routerLink]="'/modifica-studente/' + studente.id" >Modifica</button> <button class="btn btn-danger" style="max-width: 100px; margin: 5px;" (click)="elimina(studente.id)">Elimina</button></div>
+
+  </div>
+</div>
+   

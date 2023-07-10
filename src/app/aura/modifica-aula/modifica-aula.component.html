@@ -1,0 +1,27 @@
+  <div class="container">
+    <div class="row">
+      <div class="div">
+        <form [formGroup]="formAula">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Descrizione:</label>
+            <input type="text" name="txtDescrizione" class="form-control" formControlName="descrizione" required>
+            <p class="alert alert-danger" *ngIf="formAula.controls['descrizione'].invalid && formAula.controls['descrizione'].touched"> Il Campo è obbligatorio </p>
+          </div>
+          <div class="mb-3">
+            <label for="cognome" class="form-label">Numero Posti:</label>
+            <input type="text" name="txtNumeroPosti" class="form-control" formControlName="numeroPosti" required>
+            <p class="alert alert-danger" *ngIf=" formAula.controls['numeroPosti'].invalid && formAula.controls['numeroPosti'].touched"> Il Campo è obbligatorio </p>
+          </div>
+  
+          
+          
+          <button class="btn btn-danger" (click)="formAula.reset()"> Reset </button>
+          <button type="submit" class="btn btn-primary" [disabled]="formAula.invalid" (click)="onSubmit()" > Invia </button>
+          
+          
+        </form>
+      </div>
+    </div>
+  </div>
+      
+  

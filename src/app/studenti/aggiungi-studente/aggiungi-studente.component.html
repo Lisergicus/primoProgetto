@@ -1,0 +1,44 @@
+
+<div class="container">
+  <div class="row">
+    <div class="div">
+      <form #studente="ngForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome:</label>
+          <input type="text" name="nome" class="form-control" [(ngModel)]="formStudente.nome" #nome="ngModel" required>
+          <p class="alert alert-danger" *ngIf="nome.invalid && nome.touched"> Il Campo è obbligatorio </p>
+        </div>
+        <div class="mb-3">
+          <label for="cognome" class="form-label">Cognome:</label>
+          <input type="text" name="cognome" class="form-control" [(ngModel)]="formStudente.cognome" #cognome="ngModel" required>
+          <p class="alert alert-danger" *ngIf="cognome.invalid && cognome.touched"> Il Campo è obbligatorio </p>
+        </div>
+
+        <div class="mb-3">
+          <label for="matricola" class="form-label">Matricola:</label>
+          <input type="text" name="matricola" class="form-control" [(ngModel)]="formStudente.matricola" #matricola="ngModel" required>
+          <p  class="alert alert-danger" *ngIf="matricola.invalid && matricola.touched"> Il Campo è obbligatorio </p>
+        </div>
+        
+        <button class="btn btn-danger" (click)="studente.reset()"> Reset </button>
+        <button type="submit" class="btn btn-primary" [disabled]="studente.invalid" (click)="onSubmit()" > Invia </button>
+        
+        
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

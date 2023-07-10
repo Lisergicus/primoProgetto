@@ -1,0 +1,23 @@
+<div class="container" style="margin-top: 50px;">
+  <div class="row">
+    <div class="col">
+      <form #docente="ngForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome:</label>
+          <input type="text" name="nome" class="form-control" [(ngModel)]="formProfessore.nome" #nome="ngModel" required>
+          <p class="alert alert-danger" *ngIf="nome.invalid && nome.touched"> Il Campo è obbligatorio </p>
+        </div>
+        
+        <div class="mb-3">
+          <label for="cognome" class="form-label">Cognome:</label>
+          <input type="text" name="cognome" class="form-control" [(ngModel)]="formProfessore.cognome" #cognome="ngModel" required>
+          <p class="alert alert-danger" *ngIf="cognome.invalid && cognome.touched"> Il Campo è obbligatorio </p>
+        </div>
+        
+        <button class="btn btn-danger" (click)="docente.reset()"> Reset </button>
+        <button type="submit" class="btn btn-primary" [disabled]="docente.invalid"> Invia </button>
+
+      </form>
+    </div>
+  </div>
+</div>

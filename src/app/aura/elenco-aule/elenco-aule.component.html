@@ -1,0 +1,43 @@
+<div class="container" style="max-width: 60%;">
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-success" style="max-width: 150px; margin: 10px 25px;" routerLink='/aggiungi-aula'>Aggiungi</button>
+        <!-- [dataSource]="elencoProfessori" -->
+        <table mat-table [dataSource]="elencoAule">
+          
+          <ng-container matColumnDef="descrizione">
+            <th mat-header-cell *matHeaderCellDef> Descrizione </th>
+            <td mat-cell *matCellDef="let element"> {{element.descrizione}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="nPosti">
+            <th mat-header-cell *matHeaderCellDef> Numero Posti </th>
+            <td mat-cell *matCellDef="let element" > {{element.numeroPosti}}</td>
+          </ng-container>
+          
+          <ng-container matColumnDef="modifica">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <button class="btn btn-warning" mat-cell *matCellDef="let element" style="max-width: 100px; margin: 5px;" [routerLink]="'/modifica-aula/' + element.id" >Modifica</button>
+          </ng-container>
+          
+          <ng-container matColumnDef="elimina">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <button class="btn btn-danger" mat-cell *matCellDef="let element" style="max-width: 100px; margin: 5px;" (click)="elimina(element.id)">Elimina</button>
+          </ng-container>
+  
+  
+          <tr mat-header-row *matHeaderRowDef="colonne"></tr>
+          <tr mat-row *matRowDef="let row; columns: colonne"></tr>
+  
+           
+  
+          <mat-button-toggle value="bold">Bold</mat-button-toggle>
+          <mat-button-toggle value="italic">Italic</mat-button-toggle>
+          
+  
+  
+        </table>
+      </div>
+    </div>
+  </div>
+  

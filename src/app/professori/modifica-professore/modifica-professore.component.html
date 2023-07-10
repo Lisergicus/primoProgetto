@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="div">
+      <form [formGroup]="formDocente">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome:</label>
+          <input type="text" name="txtNome" class="form-control" formControlName="nome" required>
+          <p class="alert alert-danger" *ngIf="formDocente.controls['nome'].invalid && formDocente.controls['nome'].touched"> Il Campo è obbligatorio </p>
+        </div>
+        <div class="mb-3">
+          <label for="cognome" class="form-label">Cognome:</label>
+          <input type="text" name="txtCognome" class="form-control" formControlName="cognome" required>
+          <p class="alert alert-danger" *ngIf=" formDocente.controls['cognome'].invalid && formDocente.controls['cognome'].touched"> Il Campo è obbligatorio </p>
+        </div>
+
+        
+        
+        <button class="btn btn-danger" (click)="formDocente.reset()"> Reset </button>
+        <button type="submit" class="btn btn-primary" [disabled]="formDocente.invalid" (click)="modificaDocente()" > Invia </button>
+        
+        
+      </form>
+    </div>
+  </div>
+</div>
+    

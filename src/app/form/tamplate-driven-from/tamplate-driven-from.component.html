@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form #login="ngForm" (ngSubmit)="onSubmit()">
+     
+     
+        <div class="mb-3">
+        <label for="email" class="form-label">Email address*</label>
+        <input type="email" name="email" class="form-control" [(ngModel)]="formLogin.email" #email="ngModel" required>
+      </div>
+      <p class="alert alert-danger" *ngIf="email.invalid && email.touched">Il Campo è obbligatorio</p>
+     
+     
+     
+      <div class="mb-3">
+        <label for="password" class="form-label">Password*</label>
+        <input type="password" name="nome" class="form-control" [(ngModel)]="formLogin.password" #password="ngModel" required>
+      <p class="alert alert-danger" *ngIf="password.invalid && password.touched"> Campo obligatorio </p>
+      </div>
+
+
+
+      <button class="btn btn-danger" (click)="login.reset()"> Reset </button>
+      <button type="submit" class="btn btn-primary" [disabled]="login.invalid">Submit</button>
+    </form>
+
+
+
+
+    <p>valore del <b> {{login.value | json}} </b></p>
+    <p>Validita del form: <b> {{login.valid}}</b></p>
+    <p>Validita del form: <b> {{login.invalid}}</b></p>
+    <p>il form ha subito variazioni <b> {{login.dirty}} </b></p>
+    <p>il form ha subito variazioni  <b> {{login.pristine}} </b></p>
+    <p>Focus sul elemento: <b> {{login.touched}} </b></p>
+    <p>Focus sul elemento: <b> {{login.untouched}} </b></p>
+    </div>
+  </div>
+</div>
+
+

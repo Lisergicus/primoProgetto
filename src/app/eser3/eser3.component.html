@@ -1,0 +1,132 @@
+<nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid">
+      <a class="navbar-brand" >Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+        <a class="nav-link" (click)="OnNavClick(66)" style="cursor: pointer;" >Dollaro</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" (click)="OnNavClick(2)" style="cursor: pointer;">Euro</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" (click)="OnNavClick(3)" style="cursor: pointer;">Franco Svizzero</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="OnNavClick(4)" style="cursor: pointer;">Sterlina</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" (click)="OnNavClick(5)" style="cursor: pointer;">Yen Giapponese</a>
+        </li>
+      </ul>
+      </div>
+    </div>
+    </nav>
+
+<div class="container" style="text-align: center;">
+    <div class="row">
+        <h2>Converitore</h2>
+    </div>
+    <br>
+    <br>
+
+<div class="row" [ngSwitch]="page">
+    <div class="col" >
+        <input type="text" class="form-control" style="max-width: 150px; margin: auto;" #currency>
+        <br>
+        <button class="btn btn-primary" (click)="OnConvertCurrency(currency.value)"> Converti </button>
+    </div>
+    <!-- USD -->
+    <div *ngSwitchDefault="">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" style="align-content: center;">
+                <div class="row"> Dollaro {{valueCur | currency }} </div>
+                <div class="row"> Euro {{valueCur* 0.91 | currency:'EUR' }}</div>
+                <div class="row"> Franco Svizzero {{valueCur * 0.90 | currency: 'CHF' }}</div>
+            </div>
+
+            <div class="col" >
+                <div class="row"> Dollaro Canadese {{valueCur * 1.32| currency:'CAD' }}</div>
+                <div class="row"> Sterlina {{valueCur * 0.79 | currency: 'GBP' }}</div>
+                <div class="row"> Yen Giapponese {{valueCur * 144.08| currency:'JPY' }}</div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <!-- EUR -->
+    <div *ngSwitchCase="2">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" style="align-content: center;">
+                <div class="row"> Dollaro {{valueCur * 1.1| currency }} </div>
+                <div class="row"> Euro {{valueCur  | currency:'EUR' }}</div>
+                <div class="row"> Franco Svizzero {{valueCur * 0.98 | currency: 'CHF' }}</div>
+            </div>
+
+            <div class="col" >
+                <div class="row"> Dollaro Canadese {{valueCur * 1.45| currency:'CAD' }}</div>
+                <div class="row"> Sterlina {{valueCur * 0.86 | currency: 'GBP' }}</div>
+                <div class="row"> Yen Giapponese {{valueCur * 157.84| currency:'JPY' }}</div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <!-- CHF -->
+    <div *ngSwitchCase="3">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" style="align-content: center;">
+                <div class="row"> Dollaro {{valueCur *1.12 | currency }} </div>
+                <div class="row"> Euro {{valueCur* 1.02 | currency:'EUR' }}</div>
+                <div class="row"> Franco Svizzero {{valueCur| currency: 'CHF' }}</div>
+            </div>
+
+            <div class="col" >
+                <div class="row"> Dollaro Canadese {{valueCur * 1.48| currency:'CAD' }}</div>
+                <div class="row"> Sterlina {{valueCur * 0.88 | currency: 'GBP' }}</div>
+                <div class="row"> Yen Giapponese {{valueCur * 160.74| currency:'JPY' }}</div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <!-- GBP -->
+    <div *ngSwitchCase="4">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" style="align-content: center;">
+                <div class="row"> Dollaro {{valueCur *1.27 | currency }} </div>
+                <div class="row"> Euro {{valueCur* 1.16 | currency:'EUR' }}</div>
+                <div class="row"> Franco Svizzero{{valueCur * 1.14 | currency: 'CHF' }}</div>
+            </div>
+
+            <div class="col" >
+                <div class="row"> Dollaro Canadese {{valueCur * 1.68| currency:'CAD' }}</div>
+                <div class="row"> Sterlina {{valueCur| currency: 'GBP' }}</div>
+                <div class="row"> Yen Giapponese {{valueCur * 182.98| currency:'JPY' }}</div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    <!-- YEN -->
+    <div *ngSwitchCase="5">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col" style="align-content: center;">
+                <div class="row"> Dollaro {{valueCur *0.0069 | currency }} </div>
+                <div class="row"> Euro {{valueCur* 0.0063 | currency:'EUR' }}</div>
+                <div class="row"> Franco Svizzero {{valueCur * 0.0062| currency: 'CHF' }}</div>
+            </div>
+
+            <div class="col" >
+                <div class="row"> Dollaro Canadese {{valueCur * 0.0092| currency:'CAD' }}</div>
+                <div class="row"> Sterlina {{valueCur * 0.0055 | currency: 'GBP' }}</div>
+                <div class="row"> Yen Giapponese {{valueCur * 1| currency:'JPY' }}</div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</div>

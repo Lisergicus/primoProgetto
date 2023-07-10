@@ -1,0 +1,45 @@
+<!-- <app-eser1 #pbc ></app-eser1> -->
+<app-eser1 [numPerceChild]="numPercParent" #pbc></app-eser1>
+
+<input type="number" class="form-controll" #numPerc>
+<button class="btn btn-primary" (click)="onClickPercPiu(numPerc.value)"> invia </button>
+
+<button class="btn btn-primary" (click)="onClickPiuProg()"> Piu </button>
+<button class="btn btn-primary" type="text" (click)="onClickMenoProg()"> Meno </button>
+
+
+
+
+<!-- <div id="carouselExample" class="carousel slide" style="width: 350px; height: 300px;">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        
+        <div class="progress" role="progressbar" aria-label="Animated striped example" [attr.aria-valuenow]="pbc.progress[pbc.k].bar" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" [style]="pbc.progress[pbc.k].set">
+  
+              {{pbc.k*10}}%
+          </div>
+  
+      </div>
+    </div>
+   -->
+    <!-- <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar progress-bar-striped bg-success" [style]="progress[k].set"></div>
+          </div> -->
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" (click)="onClickMenoProg()">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" (click)="onClickPiuProg()">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div>
+    
+  </div>
+
+</div> -->
+
+
+

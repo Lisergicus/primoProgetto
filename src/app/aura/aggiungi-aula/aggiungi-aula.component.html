@@ -1,0 +1,23 @@
+<div class="container" style="margin-top: 50px;">
+  <div class="row">
+    <div class="col">
+      <form #aula="ngForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Descrizione:</label>
+          <input type="text" name="nome" class="form-control" [(ngModel)]="formAula.descrizione" #descrizione="ngModel" required>
+          <p class="alert alert-danger" *ngIf="descrizione.invalid && descrizione.touched"> Il Campo è obbligatorio </p>
+        </div>
+
+        <div class="mb-3">
+          <label for="cognome" class="form-label">Numero Posti:</label>
+          <input type="text" name="cognome" class="form-control" [(ngModel)]="formAula.numeroPosti" #numeroPosti="ngModel" required>
+          <p class="alert alert-danger" *ngIf="numeroPosti.invalid && numeroPosti.touched"> Il Campo è obbligatorio </p>
+        </div>
+
+        <button class="btn btn-danger" (click)="aula.reset()"> Reset </button>
+        <button type="submit" class="btn btn-primary" [disabled]="aula.invalid"> Invia </button>
+
+      </form>
+    </div>
+  </div>
+</div>

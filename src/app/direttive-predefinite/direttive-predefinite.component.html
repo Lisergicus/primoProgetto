@@ -1,0 +1,115 @@
+<div [ngClass]="'testo-rosso'">Sono un resto Rosso</div>
+<div [ngClass]="oggettoNgClass">Sono uno sfondo giallo</div>
+<div class="btn btn-primary" (click)="onClickCambio()"> Cambio</div>
+
+<div class="row">
+  <div class="col">
+    <select class="form-select" aria-label="Default select example" style="max-width: 150px;">
+      <option selected>Colore</option>
+      <option value="1">Rosso</option>
+      <option value="2">Verde</option>
+      <option value="3">Viola</option>
+      <option value="4">Blu</option>
+    </select>
+    <div [ngClass]=""></div>
+  </div>
+</div>
+
+<div [ngClass]="[coloreTesto,coloreSfondo]">Testo da cambiare</div>
+
+
+<p>colore del testo(arancione, verde, oro, grigio)</p>
+<input type="text" class="form-controll" #testo>
+<p>colore del testo(giallo, verdelime, blu, viola)</p>
+<input type="text" class="form-controll" #sfondo>
+
+<button type="button" class="btn btn-primary" (click)="onClickCambia(testo.value, sfondo.value)">Cambiaa</button>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- 
+  1: attaverso 3 input variare altezza larghezza e sfondo
+  2: usare un oggetto con le stesse proprieta 
+ -->
+
+<!-- 3 variabili -->
+
+<p>Larghezza </p>
+<input type="text" class="form-controll" #larghezzaa>
+<p>Altezza </p>
+<input type="text" class="form-controll" #altezzaa>
+<p>Colore BG (yellow, red, blue, violet, green, grey)</p>
+<input type="text" class="form-controll" #bgg>
+
+<div [ngStyle]="{'width': larghezza + 'px', 'height': altezza + 'px', 'background-color': bg}">
+
+<button type="button" class="btn btn-primary" (click)="onClickCambiaStyle(larghezzaa.value, altezzaa.value, bgg.value)">Cambiaa</button>
+
+</div>
+
+
+
+
+<!-- object -->
+<div class="row">
+  <p>Larghezza </p>
+  <input type="text" class="form-controll" #oLarghezza>
+  <p>Altezza </p>
+  <input type="text" class="form-controll" #oAltezza>
+  <p>Colore BG (yellow, red, blue, violet, green, grey)</p>
+  <input type="text" class="form-controll" #oBgg>
+  <div [ngStyle]="{'width': figura.h + 'px', 'height': figura.b + 'px', 'background-color': figura.bgc}">
+
+  <button type="button" class="btn btn-primary" (click)="onClickCambiaObject(oLarghezza.value, oAltezza.value, oBgg.value)">Cambiaa</button>
+</div>
+
+<p></p>
+<!-- direttive predefinite -->
+<!-- *ngId -->
+<p *ngIf="mostraParagrafo">Paragrafo da aggiungere/  rimuovere</p>
+<br>
+<button class="btn btn-primary" (click)="onClickParagrafo()" style="max-width: 150px;">Agg / Rim</button>
+
+<br>
+<br>
+<p></p>
+<!-- *ngFor -->
+
+<!-- <p *ngFor="let elemento of listaSpesa; let i = index; let pari = even; let dispari = odd">{{i}}  {{elemento}}</p> -->
+
+
+<ul class="list-group" *ngFor="let ingrediente of listaSpesa;let i = index; let pari = even; let dispari = odd">
+  <li class="list-group-item" style="max-width: 150px;" [ngClass]="{verdelime: pari, viola: dispari}">{{ingrediente}}</li>
+  
+  <button type="button" class="btn btn-primary" [ngClass]="{verdelime: dispari, viola: pari}" (click)="onClickDeleteEle(i)" style="max-width: 150px; border-radius: 20px; ">Rimuovi</button>
+ 
+  
+  <br>
+</ul>
+
+<br>
+<input type="text" class="form-control" style="max-width: 150px;" #txtInput>
+<br>
+<button type="button" class="btn btn-primary" (click)="onClickAdd(txtInput.value)" style="max-width: 150px;">Aggiungi</button>
+
+<!-- ngSwitch -->
+
+<br>
+<button class="btn btn-primary" (click)="OnBtnClick(1)">Selezione 1</button>
+<button class="btn btn-primary" (click)="OnBtnClick(2)">Selezione 2</button>
+<button class="btn btn-primary" (click)="OnBtnClick(3)">Selezione 3</button>
+
+<br>
+
+<div [ngSwitch]="scelta">
+  <div *ngSwitchCase="1">Hai selezionato il primo Bottone</div>
+  <div *ngSwitchCase="2">Hai selezionato il secondo Bottone</div>
+  <div *ngSwitchCase="3">Hai selezionato il terzo Bottone</div>
+  <div *ngSwitchDefault=""> sono il valore di Default</div>
+</div>
+
+<br>
+<br>

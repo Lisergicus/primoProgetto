@@ -1,0 +1,6 @@
+<p>Inserisci l'url dell'immagine</p>
+<input type="text" class="form-control" #txtInput>
+<button class="btn btn-primary" (click)="onClickInserisci(txtInput.value)" >Inserisci Immagine</button>
+<div style="max-width: 400px;">
+    <app-eser-input-child [imgUrlChild]="imgUrlParent"></app-eser-input-child>
+</div>

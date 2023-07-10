@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p>TitleCasePipe: {{'stringa in title case pipe' | titlecase}}</p> 
+            <p>UpperCasePipe; {{'stringa in uppercase pipe'| uppercase}} </p>
+            <p>LowerCasePipe: {{'STRINGA IN LOWER CASE PIPE' | lowercase}}</p>
+            <br>
+            <p>DecimalPipe: {{200.59 | number: '3.2-2'}}</p>
+            <p>PercentPipe: {{1.25 | percent}}</p>
+            <p>CurrencyPipe: {{450.50 | currency: 'EUR'}}</p>
+            <br>
+            <p>SlicePip: {{'Stringa Slice Pipe'| slice: 8: 13}}</p>
+            <p>SlicePipe: {{'Slice Pipe in Negativo' | slice: -16: -12}}</p>
+            <p>SlicePipe con array: {{ ['0', '1', '2', '3',] | slice: 2: 4}}</p>
+            <br>
+            <p>Data senza Pipe: {{dataOdierna}}</p>
+            <p>DataPipe: {{dataOdierna | date: 'dd/MM/yyyy hh: mm'}}</p>
+            <p>DatePipe: {{dataOdierna | date: 'fullDate'}} </p>
+            <br>
+            <p>JsonPipe: {{oggettoPersona | json}} </p>
+            <!-- personalizzata -->
+            <p>PersonalizzastaPipe: {{'tavolo' | personalizata: 2}} </p>
+            <br>
+            <br>
+            <input type="number" class="form-control" #fizzBuzzN>
+            <br>
+            <button class="btn btn-primary" (click)="onClickAdd(fizzBuzzN.value)">Fizz o Buzz</button>
+            <br>
+
+        
+            <!-- <p>è divisibile per 3 o per 5? {{  | fizzBuzz}} </p>
+
+            <ul class="list-group" *ngFor="let n of ritornoFizz">
+                <li class="list-group-item"> {{n}} </li>
+
+            </ul> -->
+
+
+            
+        </div>
+    </div>
+</div>

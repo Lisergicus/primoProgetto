@@ -1,0 +1,23 @@
+<br>
+<div id="carouselExample" class="carousel slide" style="max-width: 350px; max-height: 300px;">
+  <div class="carousel-inner">
+    <ul class="list-group">
+    <div class="carousel-item active">
+      <p>{{i}}</p>
+      <li class="list-group-item">{{ingredienti[i]}}</li>
+      
+  </div>
+</ul>
+
+<input type="text" class="form-control" #txtInput>
+
+<button type="button" class="btn btn-primary" (click)="onClickAggiungi(txtInput.value)">Aggiungi</button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" (click)="onClickPiuIngr()">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" (click)="onClickMenoIngr()">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+</div>

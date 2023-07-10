@@ -1,0 +1,62 @@
+<app-ordinato>
+  <h2>Abbigliamento</h2>
+
+  <!--  -->
+  <div class="prima">
+    <div class="row" style="margin-left: 420px;">
+      <div class="col-2" style="max-width: 150px;">
+        <select class="form-select filter" aria-label="Default select example" >
+          <option selected>filtro</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
+        <div class="col-2" style="max-width: 150px;">
+          <select class="form-select filter" aria-label="Default select example" >
+            <option selected>filtro</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-2" style="max-width: 150px;">
+          <select class="form-select filter" aria-label="Default select example" >
+            <option selected>filtro</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        
+      </div>
+    </div>
+  </div>
+
+  <!--  -->
+  
+  <div class="table" style="border: 10px; border-radius: 3;">
+    <div *ngFor="let vestito of vestiti">
+      <div class="row" style=" margin-left: 450px;">
+        <div class="col-2">
+          {{vestito.nome}}
+        </div>
+        <div class="col-2">
+          {{vestito.colore}}
+        </div>
+        <div class="col-2">
+          {{vestito.taglia}}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--  -->
+  <div class="seconda">
+    <div class="row">
+      <button class="btn btn-primary" (click)="onClickMeno" style="width: 150px; margin: auto; border-radius: 20px;">Indietro</button>
+      
+      <button class="btn btn-primary" (click)="onClickPiu" style="width: 150px; margin: auto; border-radius: 20px;">Salva</button>     
+    </div>
+  </div>
+</app-ordinato>
+
