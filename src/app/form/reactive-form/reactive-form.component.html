@@ -7,11 +7,13 @@
           <input type="email" class="form-control" formControlName="email">
           <p class="alert alert-danger" *ngIf="formLogin.controls['email'].invalid && formLogin.controls['email'].touched">Il campo è Obbligatorio!</p>
         </div>
+
         <div class="mb-3">
           <label class="form-label">Password</label>
           <input type="password" class="form-control" formControlName="password">
           <p class="alert alert-danger" *ngIf="formLogin.controls['password'].invalid && formLogin.controls['password'].touched"></p>
         </div>
+        
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>

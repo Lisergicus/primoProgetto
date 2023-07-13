@@ -34,9 +34,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TamplateDrivenFromComponent } from './form/tamplate-driven-from/tamplate-driven-from.component';
 import { AggiungiStudenteComponent } from './studenti/aggiungi-studente/aggiungi-studente.component';
 import { AggiungiProfessoreComponent } from './professori/aggiungi-professore/aggiungi-professore.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ModificaStudenteComponent } from './studenti/modifica-studente/modifica-studente.component';
-import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ReactiveFormComponent } from './form/reactive-form/reactive-form.component';
 import { ElencoProfessoriComponent } from './professori/elenco-professori/elenco-professori.component';
 import { ModificaProfessoreComponent } from './professori/modifica-professore/modifica-professore.component';
 import { MatTableModule } from '@angular/material/table';
@@ -46,6 +46,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ElencoAuleComponent } from './aura/elenco-aule/elenco-aule.component';
 import { AggiungiAulaComponent } from './aura/aggiungi-aula/aggiungi-aula.component';
 import { ModificaAulaComponent } from './aura/modifica-aula/modifica-aula.component';
+import { ProvaCommitComponent } from './prova-commit/prova-commit.component';
+import { LoginComponent } from './login/login.component';
+import { ElencoCorsiComponent } from './corso/elenco-corsi/elenco-corsi.component';
+import { ModificaCorsoComponent } from './corso/modifica-corso/modifica-corso.component';
+import { AggiungiCorsoComponent } from './corso/aggiungi-corso/aggiungi-corso.component';
+import { InterceptorInterceptor } from './interceptor.interceptor';
 
 
 
@@ -118,6 +124,22 @@ const routes: Routes = [
     component: ModificaAulaComponent,
   },
   {
+    path: 'elenco-corsi',
+    component: ElencoCorsiComponent,
+  },
+  {
+    path: 'aggiungi-corso',
+    component: AggiungiCorsoComponent,
+  },
+  {
+    path: 'modifica-corso/:id',
+    component: ModificaCorsoComponent,
+  },
+  {
+    path: 'login-europcar',
+    component: LoginComponent,
+  },
+  {
     path: '**',
     redirectTo: '',
   }
@@ -162,7 +184,12 @@ const routes: Routes = [
     ElencoProfessoriComponent,
     ElencoAuleComponent,
     AggiungiAulaComponent,
-    ModificaAulaComponent
+    ModificaAulaComponent,
+    ProvaCommitComponent,
+    LoginComponent,
+    ElencoCorsiComponent,
+    ModificaCorsoComponent,
+    AggiungiCorsoComponent
   ],
   imports: [
     BrowserModule,
@@ -175,7 +202,9 @@ const routes: Routes = [
     MatButtonToggleModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS,
+    useClass: InterceptorInterceptor,
+    multi: true}],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,62 @@
+<div class="container" style="max-width: 60%;">
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-success" style="max-width: 200px; margin: 10px 25px;" routerLink='/aggiungi-corso'>Aggiungi</button>
+        <table mat-table [dataSource]="elencoCorsi">
+          
+          <ng-container matColumnDef="professore">
+            <th mat-header-cell *matHeaderCellDef> Professore </th>
+            <td mat-cell *matCellDef="let element"> {{element.oDocente.cognome}} {{element.oDocente.nome}}  </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="aula">
+            <th mat-header-cell *matHeaderCellDef> Aula </th>
+            <td mat-cell *matCellDef="let element" > {{element.oAula.descrizione}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="corso">
+            <th mat-header-cell *matHeaderCellDef> Corso </th>
+            <td mat-cell *matCellDef="let element" > {{element.corso}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="durata">
+            <th mat-header-cell *matHeaderCellDef> Durata </th>
+            <td mat-cell *matCellDef="let element" > {{element.durata}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="dataInizio">
+            <th mat-header-cell *matHeaderCellDef> Data Inizio </th>
+            <td mat-cell *matCellDef="let element" > {{element.dataInizio}}</td>
+          </ng-container>
+          
+
+
+
+
+
+
+          <ng-container matColumnDef="modifica">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <button class="btn btn-warning" mat-cell *matCellDef="let element" style="max-width: 100px; margin: 5px;" [routerLink]="'/modifica-corso/' + element.id" >Modifica</button>
+          </ng-container>
+          
+          <ng-container matColumnDef="elimina">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <button class="btn btn-danger" mat-cell *matCellDef="let element" style="max-width: 100px; margin: 5px;" (click)="elimina(element.id)">Elimina</button>
+          </ng-container>
+  
+  
+          <tr mat-header-row *matHeaderRowDef="colonne"></tr>
+          <tr mat-row *matRowDef="let row; columns: colonne"></tr>
+  
+           
+  
+          <mat-button-toggle value="bold">Bold</mat-button-toggle>
+          <mat-button-toggle value="italic">Italic</mat-button-toggle>
+          
+  
+  
+        </table>
+      </div>
+    </div>
+  </div>

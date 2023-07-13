@@ -14,7 +14,7 @@ export class ReactiveFormComponent implements OnInit {
   ngOnInit(){
     this.formLogin = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password:  new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required)
     })
  
     // ALTRO ESEMPIO!!!

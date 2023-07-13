@@ -20,18 +20,9 @@ export class ElencoProfessoriComponent implements OnInit{
   colonne: string[] = [
     'nome', 'cognome', 'modifica', 'elimina'
   ]
-  // docente = {
-  //   id:'',
-  //   nome:'',
-  //   cognome:''
-  // }
+
 
   ngOnInit(){
-    // this.httpClient.get(this.urlAPI).subscribe(
-    //   (response:any) => {
-    //     this.elencoProfessori = response
-    //   }
-    // )
     this.recuperaElenco();
   }
 
@@ -41,23 +32,12 @@ export class ElencoProfessoriComponent implements OnInit{
         this.elencoProfessori = risposta;
       }
     )
-  }
-
-  // nuovoDocente(){
-  //   this.docenteService.setNuovoDocente().subscribe(
-  //     ()=>{
-        
-  //     }
-  //   )
-  // }
-  
+  } 
 
   elimina(id:number){
     this.httpClient.delete(this.urlAPI + '/DeleteDocente/' + id).subscribe(
       () => {
-        this.snackBar.open('Docente eliminato con Successo!', '',  {duration:4000, verticalPosition:'top'})
-
-        this.router.navigate(['/elenco-docenti'])
+        this.router.navigate(['/elenco-professori'])
       }
     )
   }

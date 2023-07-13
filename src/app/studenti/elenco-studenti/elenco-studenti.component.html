@@ -14,11 +14,11 @@
   </div>
   <div class="row" *ngFor="let studente of elencoStudenti">
 
-      <div class="col-2"></div>
-      <div class="col">{{studente.nome}}</div>
-      <div class="col">{{studente.cognome}}</div>
-      <div class="col">{{studente.matricola}}</div>
-      <div class="col-3" ><button class="btn btn-warning" style="max-width: 100px; margin: 5px;" [routerLink]="'/modifica-studente/' + studente.id" >Modifica</button> <button class="btn btn-danger" style="max-width: 100px; margin: 5px;" (click)="elimina(studente.id)">Elimina</button></div>
+    <div class="col-2"></div>
+    <div class="col">{{studente.nome}}</div>
+    <div class="col">{{studente.cognome}}</div>
+    <div class="col">{{studente.matricola}}</div>
+    <div class="col-3" ><button class="btn btn-warning" style="max-width: 100px; margin: 5px;" [routerLink]="'/modifica-studente/' + studente.id" >Modifica</button> <button class="btn btn-danger" style="max-width: 100px; margin: 5px;" (click)="elimina(studente.id)">Elimina</button></div>
 
   </div>
 </div>

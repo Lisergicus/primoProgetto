@@ -1,0 +1,61 @@
+<div class="container" style="margin-top: 50px;">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="formCorso">
+
+
+        <div class="mb-3">
+          <label class="form-label">Corso *</label>
+          <input type="text" class="form-control" formControlName="corso">
+          <p class="alert alert-danger" *ngIf="formCorso.controls['corso'].invalid && formCorso.controls['corso'].touched">Il campo è Obbligatorio!</p>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">Aula *</label>
+          <!-- <input type="text" class="form-control" formControlName="oAula"> -->
+          <select formControlName="oAula">
+
+            <option value="">Seleziona un Aula</option>
+
+            <option *ngFor="let aula of aulee" [value]="aula.chiave">{{aula.descrizione}} </option>
+          </select>
+
+          <p class="alert alert-danger" *ngIf="formCorso.controls['oAula'].invalid && formCorso.controls['oAula'].touched">Il campo è Obbligatorio!</p>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">Docente  *</label>
+          <input type="text" class="form-control" formControlName="oDocente">
+          <p class="alert alert-danger" *ngIf="formCorso.controls['oDocente'].invalid && formCorso.controls['oDocente'].touched">Il campo è Obbligatorio!</p>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">Durata *</label>
+          <input type="text" class="form-control" formControlName="durata">
+          <p class="alert alert-danger" *ngIf="formCorso.controls['durata'].invalid && formCorso.controls['durata'].touched">Il campo è Obbligatorio!</p>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">Data Inizio *</label>
+          <input type="text" class="form-control" formControlName="dataInizio">
+          <p class="alert alert-danger" *ngIf="formCorso.controls['dataInizio'].invalid && formCorso.controls['dataInizio'].touched">Il campo è Obbligatorio!</p>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label">Partecipanti *</label>
+          <input type="text" class="form-control" formControlName="partecipanti">
+          <p class="alert alert-danger" *ngIf="formCorso.controls['partecipanti'].invalid && formCorso.controls['partecipanti'].touched">Il campo è Obbligatorio!</p>
+        </div>
+
+        
+
+        
+        <button class="btn btn-danger" (click)="formCorso.reset()"> Reset </button>
+        <button type="submit" class="btn btn-primary" [disabled]="formCorso.invalid"> Invia </button>
+
+
+        
+      </form>
+    </div>
+  </div>
+</div>
